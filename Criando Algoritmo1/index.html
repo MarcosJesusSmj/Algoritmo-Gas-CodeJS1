@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Posto de Combustíveis</title>
+</head>
+<body>
+  <h1>Posto de Combustíveis</h1>
+  <table border="1">
+    <tr>
+      <th>Tipo de Combustível</th>
+      <th>Quantidade de Clientes</th>
+    </tr>
+    <tr>
+      <td>Álcool</td>
+      <td id="alcool">0</td>
+    </tr>
+    <tr>
+      <td>Gasolina</td>
+      <td id="gasolina">0</td>
+    </tr>
+    <tr>
+      <td>Diesel</td>
+      <td id="diesel">0</td>
+    </tr>
+  </table>
+  <script>
+    var alcool = 0;
+    var gasolina = 0;
+    var diesel = 0;
+
+    function atualizarTabela() {
+      document.getElementById("alcool").textContent = alcool;
+      document.getElementById("gasolina").textContent = gasolina;
+      document.getElementById("diesel").textContent = diesel;
+    }
+
+    while (true) {
+
+      var codigo = parseInt(prompt("Digite o código do tipo de combustivel (1-Álcool, 2-Gasolina, 3-Diesel, 4-Fim):"));
+
+      if (codigo < 1 || codigo > 4) {
+        alert("Código inválido. Digite novamente.");
+        continue;
+      }
+
+      if (codigo === 4) {
+        break;
+      }
+
+      switch (codigo) {
+        case 1:
+          alcool++;
+          break;
+        case 2:
+          gasolina++;
+          break;
+        case 3:
+          diesel++;
+          break;
+      }
+
+      atualizarTabela();
+    }
+
+    alert("MUITO OBRIGADO!");
+  </script>
+</body>
+</html>
